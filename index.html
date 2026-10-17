@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Videos creativos, contenido digital y estrategias para hacer destacar tu marca.">
+  <title>Impulse Studio | Haz que tu marca destaque</title>
+<style>
+    :root {
+      --paper: #f8f8f5;
+      --white: #ffffff;
+      --ink: #171815;
+      --muted: #686b63;
+      --green: #087b16;
+      --line: #dedfd8;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: Inter, "Helvetica Neue", Arial, sans-serif; line-height: 1.55; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), 88%); margin-inline: auto; }
+    header { background: #080908; position: sticky; top: 0; z-index: 10; border-bottom: 1px solid #272a26; }
+    nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .logo { display: inline-flex; align-items: center; flex: 0 0 auto; background: #080908; padding: 8px 0; }
+    .logo img { display: block; width: 210px; max-width: 36vw; height: auto; image-rendering: auto; }
+    .menu { display: flex; align-items: center; gap: 28px; color: #e8eae5; font-size: 13px; }
+    .menu a:hover { color: #26c934; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: 12px 18px; border: 1px solid var(--ink); background: var(--ink); color: white; font-size: 13px; font-weight: 650; transition: background .2s, color .2s; cursor: pointer; }
+    .btn:hover { background: var(--green); border-color: var(--green); }
+    .btn-outline { background: transparent; color: var(--ink); }
+    .btn-outline:hover { color: white; }
+    .hero { padding-top: clamp(70px, 10vw, 135px); padding-bottom: 80px; }
+    .eyebrow { display: block; color: #087b16; font-size: 11px; font-weight: 800; letter-spacing: 2.2px; text-transform: uppercase; }
+    h1 { max-width: 980px; font-size: clamp(52px, 8.7vw, 108px); font-weight: 760; line-height: .94; letter-spacing: -.075em; margin: 24px 0; }
+    h1 .accent { color: #087b16; }
+    h1 .stroke { color: transparent; -webkit-text-stroke: 1.6px var(--ink); }
+    .lead { color: var(--muted); font-size: clamp(16px, 1.8vw, 20px); max-width: 610px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .proof { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 28px; color: var(--muted); font-size: 12px; }
+    .proof b { color: var(--ink); font-weight: 600; }
+    .video-frame { position: relative; margin-top: 64px; border: 1px solid var(--line); background: #e8e9e3; }
+    .video-inner { overflow: hidden; background: #111; }
+    .video-portada { width: 100%; max-height: 680px; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+    .video-tag { position: absolute; top: 16px; left: 16px; background: var(--paper); color: var(--ink); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; padding: 8px 10px; text-transform: uppercase; z-index: 2; }
+    .sound-toggle { position: absolute; right: 16px; bottom: 16px; z-index: 3; border: 1px solid rgba(255,255,255,.65); background: rgba(8,9,8,.82); color: #fff; padding: 11px 14px; font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(8px); }
+    .sound-toggle:hover { background: #087b16; border-color: #087b16; }
+    section { padding: 86px 0; }
+    .section-head { max-width: 690px; margin-bottom: 34px; }
+    h2 { font-size: clamp(40px, 5.5vw, 70px); font-weight: 720; line-height: .99; letter-spacing: -.065em; margin: 14px 0 20px; }
+    .muted { color: var(--muted); max-width: 640px; }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+    .card { padding: 28px 25px 28px 0; border-bottom: 1px solid var(--line); }
+    .card + .card { padding-left: 25px; border-left: 1px solid var(--line); }
+    .icon { color: var(--green); font-size: 22px; font-weight: 600; }
+    .card h3 { margin: 20px 0 9px; font-size: 22px; font-weight: 750; letter-spacing: -.035em; }
+    .card p { color: var(--muted); font-size: 14px; max-width: 310px; }
+    .showcase { background: var(--white); border-block: 1px solid var(--line); }
+    .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .tile { min-height: 250px; padding: 23px; border: 1px solid var(--line); background: var(--paper); display: flex; flex-direction: column; justify-content: space-between; }
+    .tile:nth-child(2) { background: #edf2e9; }
+    .tile:nth-child(3) { background: #efefe9; }
+    .tile small { color: var(--muted); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.4px; }
+    .tile strong { display: block; font-size: clamp(30px, 3.8vw, 46px); font-weight: 800; line-height: .94; letter-spacing: -.065em; }
+    .tile p { color: var(--muted); font-size: 13px; margin-top: 12px; }
+    .note { color: var(--muted); font-size: 11px; margin-top: 14px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 35px; }
+    .step { border-top: 1px solid var(--ink); padding-top: 17px; }
+    .step span { color: var(--green); font-size: 11px; font-weight: 750; letter-spacing: 1.5px; }
+    .step h3 { margin: 12px 0 8px; font-size: 21px; font-weight: 750; letter-spacing: -.025em; }
+    .step p { color: var(--muted); font-size: 14px; }
+    .cta { background: #e9eee4; padding: clamp(30px, 6vw, 72px); }
+    .cta .eyebrow { color: var(--green); }
+    .cta h2 { max-width: 740px; }
+    .cta p { color: var(--muted); max-width: 600px; margin: 14px 0 25px; }
+    .btn-dark { background: var(--green); border-color: var(--green); color: white; }
+    .contact { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: start; }
+    form { border-top: 1px solid var(--ink); padding-top: 14px; }
+    label { display: block; font-size: 12px; font-weight: 650; margin: 16px 0 7px; }
+    input, select, textarea { width: 100%; padding: 13px 0; border: 0; border-bottom: 1px solid #c9cbc3; border-radius: 0; background: transparent; color: var(--ink); font: inherit; outline-offset: 3px; }
+    input:focus, select:focus, textarea:focus { border-color: var(--green); outline-color: var(--green); }
+    textarea { min-height: 90px; resize: vertical; }
+    form button { margin-top: 22px; }
+    #mensaje { color: var(--green); font-size: 12px; margin-top: 12px; }
+    footer { border-top: 1px solid #272a26; padding: 28px 0; color: #c5c8c0; background: #080908; font-size: 12px; }
+    .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+    @media (max-width: 780px) {
+      .menu { display: none; }
+      .hero { padding-top: 64px; }
+      .logo img { width: 160px; }
+      .contact { grid-template-columns: 1fr; gap: 28px; }
+      .services, .tiles, .steps { grid-template-columns: 1fr; }
+      .card, .card + .card { padding: 22px 0; border-left: 0; }
+      .video-frame { margin-top: 42px; }
+      section { padding: 62px 0; }
+    }
+
+    /* Aparición suave al desplazarse */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1);
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: .10s; }
+    .reveal-delay-2 { transition-delay: .20s; }
+    .reveal-delay-3 { transition-delay: .30s; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; will-change: auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <a class="logo" href="#inicio" aria-label="Impulse Studio, inicio"><img src="logo.png" alt="Logo de Impulse Studio"></a>
+    <div class="menu">
+      <a href="#servicios">Servicios</a><a href="#muestras">Ideas</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a>
+    </div>
+    <a class="btn" href="#contacto">Hablemos ↗</a>
+  </nav>
+</header>
+<main>
+  <section class="wrap hero" id="inicio">
+    <div>
+      <div class="eyebrow">Creatividad que mueve marcas</div>
+      <h1>Haz que tu marca <span class="accent">brille.</span> <span class="stroke">En serio.</span></h1>
+      <p class="lead">Dirección creativa, videos y contenido digital para marcas con algo que decir. Una mirada clara, ideas bien ejecutadas y diseño con intención.</p>
+      <div class="actions"><a class="btn" href="#contacto">Impulsemos tu negocio ↗</a><a class="btn btn-outline" href="#servicios">Descubrir servicios</a></div>
+      <div class="proof"><span>✦ <b>Ideas frescas</b></span><span>✦ <b>Diseño con personalidad</b></span><span>✦ <b>Contenido estratégico</b></span></div>
+    </div>
+    <div class="video-frame">
+      <div class="video-inner">
+        <!-- VIDEO: coloca github.mp4 en la misma carpeta que index.html -->
+        <video class="video-portada" id="videoPortada" autoplay muted loop playsinline preload="metadata" aria-label="Video de presentación de Impulse Studio"><source src="github.mp4" type="video/mp4">Tu navegador no admite video HTML5.</video>
+      <button class="sound-toggle" id="activarSonido" type="button" aria-pressed="false">↗ Activar sonido</button>
+      </div>
+      <div class="video-tag">TU PRÓXIMA GRAN IDEA ✳</div>
+    </div>
+  </section>
+  <section class="wrap" id="servicios">
+    <div class="section-head"><div class="eyebrow">Lo que hacemos</div><h2>Ideas potentes.<br>Resultados visibles.</h2><p class="muted">Tu negocio tiene algo especial. Creamos una forma de mostrarlo con claridad, personalidad y contenido que conecta con las personas correctas.</p></div>
+    <div class="services">
+      <article class="card"><div class="icon">▶</div><h3>Videos que enganchan</h3><p>Reels, TikToks y videos cortos con ritmo, subtítulos y una idea potente desde los primeros segundos.</p></article>
+      <article class="card"><div class="icon">✳</div><h3>Contenido creativo</h3><p>Ideas para publicaciones y calendarios que mantienen tu marca activa, coherente y reconocible.</p></article>
+      <article class="card"><div class="icon">↗</div><h3>Identidad digital</h3><p>Mejoramos la presentación de tu perfil y la manera en que comunicas lo que hace único a tu negocio.</p></article>
+    </div>
+  </section>
+  <section class="showcase" id="muestras"><div class="wrap">
+    <div class="section-head"><div class="eyebrow">Ideas de muestra</div><h2>Que tu contenido<br>no pase desapercibido.</h2><p class="muted">Conceptos visuales de ejemplo para imaginar cómo podría comunicarse una marca con personalidad.</p></div>
+    <div class="tiles">
+      <article class="tile"><small>Concepto 01 / Café</small><div><strong>UNA PAUSA.<br>UN GRAN PLAN.</strong><p>Contenido para despertar antojos y visitas.</p></div></article>
+      <article class="tile"><small>Concepto 02 / Moda</small><div><strong>VISTE<br>LA IDEA.</strong><p>Una marca con actitud propia.</p></div></article>
+      <article class="tile"><small>Concepto 03 / Hecho a mano</small><div><strong>HECHO<br>PARA BRILLAR.</strong><p>Historias detrás de cada detalle.</p></div></article>
+    </div>
+    <p class="note">Estas piezas son conceptos ilustrativos, no trabajos realizados para clientes reales.</p>
+  </div></section>
+  <section class="wrap" id="proceso"><div class="section-head"><div class="eyebrow">Simple y transparente</div><h2>De la idea a la acción.</h2></div>
+    <div class="steps">
+      <article class="step"><span>PASO 01</span><h3>Nos conocemos</h3><p>Me cuentas sobre tu negocio, tus objetivos y lo que quieres mejorar.</p></article>
+      <article class="step"><span>PASO 02</span><h3>Armamos el plan</h3><p>Elegimos los servicios, definimos las entregas y acordamos los plazos.</p></article>
+      <article class="step"><span>PASO 03</span><h3>Lo hacemos realidad</h3><p>Creamos contenido y afinamos los detalles para que tu marca destaque.</p></article>
+    </div>
+  </section>
+  <section class="wrap"><div class="cta"><div class="eyebrow">Tu negocio tiene potencial</div><h2>Es hora de que todos lo vean.</h2><p>Cuéntame tu idea y encontremos una forma creativa de hacerla crecer.</p><a class="btn btn-dark" href="#contacto">Cuéntame tu idea ↗</a></div></section>
+  <section class="wrap contact" id="contacto">
+    <div><div class="eyebrow">Hablemos</div><h2>¿Qué quieres impulsar?</h2><p class="muted">Completa estos datos y se abrirá WhatsApp con un mensaje listo para enviar. Revisa el número de contacto en el código antes de publicar.</p></div>
+    <form id="formulario">
+      <label for="nombre">Tu nombre</label><input id="nombre" name="nombre" placeholder="¿Cómo te llamas?" required>
+      <label for="negocio">Nombre de tu negocio</label><input id="negocio" name="negocio" placeholder="Nombre de tu marca" required>
+      <label for="servicio">¿Qué necesitas?</label><select id="servicio" name="servicio" required><option value="">Selecciona una opción</option><option>Edición de videos</option><option>Estrategia de contenido</option><option>Mejora de perfiles</option><option>Asesoría general</option><option>Todavía no lo sé</option></select>
+      <label for="detalles">Cuéntame un poco más</label><textarea id="detalles" name="detalles" placeholder="¿Qué hace tu negocio y qué te gustaría mejorar?"></textarea>
+      <button class="btn" type="submit">Preparar mensaje por WhatsApp ↗</button><p id="mensaje" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+<footer><div class="wrap foot"><a class="logo" href="#inicio" aria-label="Impulse Studio, inicio"><img src="logo.png" alt="Logo de Impulse Studio"></a><span>Dirección creativa · Video · Contenido digital</span><span>© <span id="anio"></span> Impulse Studio</span></div></footer>
+<script>
+
+  // Animaciones discretas: los bloques aparecen suavemente al entrar en pantalla.
+  (function() {
+    const selectores = [
+      ".hero .eyebrow", ".hero h1", ".hero .lead", ".hero .actions", ".hero .proof",
+      ".video-frame", "section .section-head", ".services .card", ".tiles .tile",
+      ".steps .step", ".cta", ".contact > div", ".contact form"
+    ];
+    const elementos = document.querySelectorAll(selectores.join(","));
+    elementos.forEach((elemento, indice) => {
+      elemento.classList.add("reveal");
+      if (elemento.matches(".card, .tile, .step")) {
+        const posicion = Array.from(elemento.parentElement.children).indexOf(elemento);
+        if (posicion >= 0 && posicion < 3) elemento.classList.add("reveal-delay-" + (posicion + 1));
+      }
+    });
+    if ("IntersectionObserver" in window) {
+      const observador = new IntersectionObserver((entradas, observer) => {
+        entradas.forEach(entrada => {
+          if (entrada.isIntersecting) {
+            entrada.target.classList.add("is-visible");
+            observer.unobserve(entrada.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+      elementos.forEach(elemento => observador.observe(elemento));
+    } else {
+      elementos.forEach(elemento => elemento.classList.add("is-visible"));
+    }
+  })();
+
+  // El video intenta reproducirse automáticamente sin sonido; el visitante puede activar audio aquí.
+  const videoPortada = document.getElementById("videoPortada");
+  const botonSonido = document.getElementById("activarSonido");
+  if (videoPortada && botonSonido) {
+    botonSonido.addEventListener("click", async () => {
+      videoPortada.muted = !videoPortada.muted;
+      botonSonido.setAttribute("aria-pressed", String(!videoPortada.muted));
+      botonSonido.textContent = videoPortada.muted ? "↗ Activar sonido" : "♪ Sonido activado";
+      if (!videoPortada.muted) {
+        try { await videoPortada.play(); } catch (e) { /* El navegador puede pedir interacción adicional. */ }
+      }
+    });
+  }
+
+  // Verifica que este número sea el correcto antes de publicar: código de país + número, solo dígitos.
+  const NUMERO_WHATSAPP = "56999438916";
+  document.getElementById("anio").textContent = new Date().getFullYear();
+  document.getElementById("formulario").addEventListener("submit", function(event) {
+    event.preventDefault();
+    if (!this.reportValidity()) return;
+    if (!/^\d{8,15}$/.test(NUMERO_WHATSAPP)) {
+      document.getElementById("mensaje").textContent = "Configura primero el número de WhatsApp en el código.";
+      return;
+    }
+    const datos = new FormData(this);
+    const texto = "¡Hola! Vi la web de Impulse Studio y quiero consultar por sus servicios.\n\n" +
+      "Nombre: " + datos.get("nombre") + "\n" +
+      "Negocio: " + datos.get("negocio") + "\n" +
+      "Servicio: " + datos.get("servicio") + "\n" +
+      "Detalles: " + (datos.get("detalles") || "No especificados");
+    window.open("https://wa.me/" + NUMERO_WHATSAPP + "?text=" + encodeURIComponent(texto), "_blank", "noopener,noreferrer");
+  });
+</script>
+</body>
+</html>
